@@ -55,7 +55,7 @@ export const TOGGLE_VALUE_ACCESSOR = new Provider(
     <div class="toggle-icon" [class.toggle-checked]="_checked" [class.toggle-activated]="_activated">
       <div class="toggle-inner"></div>
     </div>
-    <button role="checkbox"
+    <button ion-button role="checkbox"
             type="button"
             category="item-cover"
             [id]="id"

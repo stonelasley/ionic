@@ -34,14 +34,14 @@ import { isTrueProperty } from '../../util/util';
   * @see {@link /docs/v2/components#buttons Button Component Docs}
  */
 @Component({
-  selector: 'button:not([ion-item]),[button]',
+  selector: '[ion-button]',
   // NOTE: template must not contain spaces between elements
   template: '<span class="button-inner"><ng-content></ng-content></span><ion-button-effect></ion-button-effect>',
   changeDetection: ChangeDetectionStrategy.OnPush,
   encapsulation: ViewEncapsulation.None,
 })
 export class Button {
-  private _role: string = 'button'; // bar-button/item-button
+  private _role: string = 'button'; // bar-button
   private _size: string = null; // large/small/default
   private _style: string = 'default'; // outline/clear/solid
   private _shape: string = null; // round/fab
@@ -50,11 +50,6 @@ export class Button {
   private _icon: string = null; // left/right/only
   private _disabled: boolean = false; // disabled
   private _init: boolean;
-
-  /**
-   * @private
-   */
-  isItem: boolean;
 
   /**
    * @input {string} The category of the button.
@@ -163,22 +158,12 @@ export class Button {
   constructor(
     config: Config,
     private _elementRef: ElementRef,
-    private _renderer: Renderer,
-    @Attribute('ion-item') ionItem: string
+    private _renderer: Renderer
   ) {
-
-    this.isItem = (ionItem === '');
-
     let element = _elementRef.nativeElement;
 
     if (config.get('hoverCSS') === false) {
-      _renderer.setElementClass(_elementRef.nativeElement, 'disable-hover', true);
-    }
-
-    if (element.hasAttribute('ion-item')) {
-      // no need to put on these classes for an ion-item
-      this._role = null;
-      return;
+      _renderer.setElementClass(element, 'disable-hover', true);
     }
 
     if (element.hasAttribute('disabled')) {

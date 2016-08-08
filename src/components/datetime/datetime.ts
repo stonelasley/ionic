@@ -249,7 +249,7 @@ export const DATETIME_VALUE_ACCESSOR = new Provider(
   selector: 'ion-datetime',
   template: `
     <div class="datetime-text">{{_text}}</div>
-    <button aria-haspopup="true"
+    <button ion-button aria-haspopup="true"
             type="button"
             [id]="id"
             category="item-cover"

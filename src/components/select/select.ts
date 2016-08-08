@@ -123,7 +123,7 @@ export const SELECT_VALUE_ACCESSOR = new Provider(
     <div class="select-icon">
       <div class="select-icon-inner"></div>
     </div>
-    <button aria-haspopup="true"
+    <button ion-button aria-haspopup="true"
             [id]="id"
             category="item-cover"
             [attr.aria-labelledby]="_labelId"
