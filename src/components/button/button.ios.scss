@@ -120,11 +120,19 @@ $button-ios-clear-opacity-hover:                    .6 !default;
 // iOS Round Button
 // --------------------------------------------------
 
+
 /// @prop - Padding of the round button
 $button-ios-round-padding:                          $button-round-padding !default;
 
 /// @prop - Border radius of the round button
 $button-ios-round-border-radius:                    $button-round-border-radius !default;
+
+
+// iOS FAB Button
+// --------------------------------------------------
+
+/// @prop - Border radius of the FAB button
+$button-ios-fab-border-radius:                      50% !default;
 
 
 // iOS Default Button
@@ -305,6 +313,13 @@ $button-ios-round-border-radius:                    $button-round-border-radius 
   border-radius: $button-ios-round-border-radius;
 }
 
+
+// iOS FAB Button
+// --------------------------------------------------
+
+.button-fab {
+  border-radius: $button-ios-fab-border-radius;
+}
 
 // iOS does not use the button effect
 ion-button-effect {
