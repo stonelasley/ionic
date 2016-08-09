@@ -3,6 +3,7 @@
 // FABulous Buttons (Floating Action Button from material)
 // --------------------------------------------------
 
+/// @prop - Width and height of the fab button
 $button-fab-size:           56px !default;
 
 
@@ -14,7 +15,6 @@ $button-fab-size:           56px !default;
   min-width: 0;
   height: $button-fab-size;
 
-  border-radius: 50%;
   font-size: 14px;
   line-height: $button-fab-size;
   vertical-align: middle;
