@@ -1,4 +1,4 @@
-import { Component, ComponentResolver, EventEmitter, HostBinding, Injectable, Renderer, ViewChild, ViewContainerRef } from '@angular/core';
+import { Component, ComponentResolver, ElementRef, EventEmitter, HostBinding, Injectable, Renderer, ViewChild, ViewContainerRef } from '@angular/core';
 import { Title } from '@angular/platform-browser';
 
 import { ClickBlock } from '../../util/click-block';
@@ -132,7 +132,7 @@ export class App {
       console.error('appRoot is missing, scrolling can not be enabled/disabled');
       return;
     }
-    this.appRoot.disableScroll = disableScroll;
+    this.appRoot.toggleScroll(!disableScroll);
   }
 
   /**
@@ -330,6 +330,7 @@ export class AppRoot {
   @ViewChild('anchor', {read: ViewContainerRef}) private _viewport: ViewContainerRef;
 
   constructor(
+    private _elementRef: ElementRef,
     private _cmp: UserComponent,
     private _cr: ComponentResolver,
     private _renderer: Renderer,
@@ -349,8 +350,20 @@ export class AppRoot {
     });
   }
 
-  @HostBinding('class.disable-scroll') disableScroll: boolean = false;
+  /*
+   * @Interal
+   *
+   */
+  toggleScroll(scrollEnabled: boolean) {
+    if ( scrollEnabled ) {
+      this._renderer.setElementClass(this._elementRef.nativeElement, DISABLE_SCROLL_CLASS, false);
+    } else {
+      this._renderer.setElementClass(this._elementRef.nativeElement, DISABLE_SCROLL_CLASS, true);
+    }
+  }
 
 }
+
+const DISABLE_SCROLL_CLASS = 'disable-scroll';
 
 const CLICK_BLOCK_BUFFER_IN_MILLIS = 64;
