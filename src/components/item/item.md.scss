@@ -137,8 +137,8 @@ ion-icon[item-right] {
   font-size: 1.2rem;
 }
 
-.item-button.button-icon-only ion-icon,
-.item-button.button-icon-only {
+.item-button[icon-only] ion-icon,
+.item-button[icon-only] {
   padding: 0 1px;
 }
 
@@ -228,4 +228,12 @@ ion-item-divider {
 
 ion-item-sliding {
   background-color: $item-md-sliding-content-background;
+}
+
+// Item reorder
+// --------------------------------------------------
+
+ion-reorder {
+  font-size: 1.5em;
+  opacity: .3;
 }
